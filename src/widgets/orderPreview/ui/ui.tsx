@@ -4,6 +4,8 @@ import { OrderTypes } from '@/shared/interface';
 import { useState, useEffect } from 'react';
 import { Get } from '../model';
 import { OrdersCardInfo } from '@/features/ordersCardInfo';
+import { TableWithOrders } from '@/features/tableWithOrders';
+import { OrderPreviewTable } from '@/features/orderPreviewTable';
 export const OrderPreview = ({ params }: { params: { id: number } }) => {
     const [orders, setOrders] = useState<OrderTypes | null>(null);
     const ID = params.id;
@@ -26,8 +28,14 @@ export const OrderPreview = ({ params }: { params: { id: number } }) => {
                         {orders?.status.name.toLowerCase()}
                     </h3>
                 </section>
-                <section>
+                <section
+                    style={{
+                        display: 'flex',
+                        alignItems: 'flex-start',
+                        justifyContent: 'space-between',
+                    }}>
                     <OrdersCardInfo order={orders} />
+                    <OrderPreviewTable order={orders} />
                 </section>
             </div>
         </>

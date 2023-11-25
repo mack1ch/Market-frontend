@@ -20,23 +20,7 @@ export const middleSectionElements: NavBarElementProps[] = [
                 title: 'В продаже',
                 link: '/admin/sale',
             },
-            {
-                id: 2,
-                title: 'Сняты с продажи',
-                link: '/',
-            },
-            {
-                id: 3,
-                title: 'Подборки',
-                link: '/',
-            },
         ],
-    },
-    {
-        id: 1,
-        title: 'Статистика',
-        link: '/',
-        icon: Stat,
     },
     {
         id: 2,
@@ -49,7 +33,7 @@ export const middleSectionElements: NavBarElementProps[] = [
 export const lastSectionElements: NavBarElementProps[] = [
     {
         id: 4,
-        title: 'Дмитрий Степанов',
+        title: 'Иван Белогуров',
         link: '/',
         icon: User,
     },

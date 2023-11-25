@@ -5,7 +5,7 @@ export interface OrderItemProps {
     cover?: any;
     name?: string;
     price?: string;
-    quantity?: string;
+    quantity: number | null;
 }
 const IMGURL = 'https://market.inverse-team.store';
 export const OrderItem: FC<OrderItemProps> = ({ cover, name, price, quantity }) => {
@@ -33,7 +33,7 @@ export const OrderItem: FC<OrderItemProps> = ({ cover, name, price, quantity }) 
                             fill="none">
                             <circle cx="2" cy="2" r="2" fill="#EDCBAD" />
                         </svg>
-                        <p className={styles.product__quantity}>{quantity} шт</p>
+                        <p className={styles.product__quantity}>{quantity?.toString()} шт</p>
                     </span>
                 </div>
             </div>

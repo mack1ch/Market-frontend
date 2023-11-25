@@ -1,13 +1,15 @@
 import { OrderTypes, ProductTypes } from '@/shared/interface';
 import styles from './ui.module.scss';
 import { OrderItem } from '@/entities/orderItem';
+import { getTotalProductsCount } from '../model';
 
 export const OrdersCardInfo = ({ order }: { order: OrderTypes | null }) => {
+    const productAmount = order && getTotalProductsCount(order);
     return (
         <>
             <article className={styles.card}>
                 <header className={styles.header}>
-                    4 товара ({order?.total_weight} г.) на сумму{' '}
+                    {productAmount} товара ({order?.total_weight} г.) на сумму{' '}
                     <span className={styles.orange}>{order?.total_price}₽</span>
                 </header>
                 <main className={styles.main}>
@@ -19,7 +21,7 @@ export const OrdersCardInfo = ({ order }: { order: OrderTypes | null }) => {
                                     cover={product.product.cover}
                                     name={product.product.name}
                                     price={order.total_price}
-                                    quantity={product.product.amount}
+                                    quantity={productAmount}
                                 />
                                 <div key={product.id} className={styles.stock}></div>
                             </>
